@@ -1,0 +1,26 @@
+[
+    {
+        "type": "movie",
+        "id": 1,
+        "name": "Interstellar",
+        "hrDuration": 2,
+        "minDuration": 49,
+        "secDuration": 0,
+        "rating": 9,
+        "genre": "Sci-Fi"
+    },
+    {
+        "type": "series",
+        "id": 2,
+        "name": "Dark",
+        "hrDuration": 1,
+        "minDuration": 0,
+        "secDuration": 0,
+        "rating": 8,
+        "genre": "Thriller",
+        "episodes": [
+            {"id": 1, "title": "Secrets", "duration": 60},
+            {"id": 2, "title": "Lies", "duration": 58}
+        ]
+    }
+]

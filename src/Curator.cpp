@@ -1,24 +1,25 @@
 #include "Curator.hpp"
 #include "AudiovisContent.hpp"
-
+#include "Movie.hpp"
+#include "Series.hpp"
+#include "Episode.hpp"
+#include "json.hpp"
 #include <iostream>
+#include <fstream>
+#include <memory>
 
-// Constructors
-Curator::Curator() = default;
-Curator::Curator(const std::list<AudiovisContent>& newCatalog) : catalog(newCatalog) {}
-
-// Destructors
+// Constructores y destructores
+Curator::Curator() {
+    readCatalog();
+}
+Curator::Curator(const std::list<std::shared_ptr<AudiovisContent>>& newCatalog) : catalog(newCatalog) {}
 Curator::~Curator() = default;
 
-// Getter and setter (Catalog)
-const std::list<AudiovisContent>& Curator::getCatalog() const {
-    return catalog;
-}
-void Curator::setCatalog(const std::list<AudiovisContent>& newCatalog) {
-    this->catalog = newCatalog;
-}
+// Getters y setters
+const std::list<std::shared_ptr<AudiovisContent>>& Curator::getCatalog() const { return catalog; }
+void Curator::setCatalog(const std::list<std::shared_ptr<AudiovisContent>>& newCatalog) { catalog = newCatalog; }
 
-// Methods
+// Menú de bienvenida
 std::string Curator::welcomeMenu() {
     std::string welcomeInput;
     std::cout << "============== ¡Bienvenido a Tecflix! ==============" << std::endl;
@@ -35,20 +36,69 @@ std::string Curator::welcomeMenu() {
     }
 }
 
-void Curator::catalogMenu(Curator theCurator, std::string welcomeInputinCatalog) {
-    if (welcomeInputinCatalog.empty()) {
-        std::cout << "Cargando cátalogo..." << std::endl;
-
-    } 
-    else if (welcomeInputinCatalog == "e" || welcomeInputinCatalog == "E") {
-    std::cout << "Saliendo..." << std::endl;
+// Menú del catálogo
+void Curator::catalogMenu(const std::string& welcomeInputInCatalog) {
+    if (welcomeInputInCatalog.empty()) {
+        std::cout << "Cargando catálogo..." << std::endl;
+        showCatalog();
+    } else if (welcomeInputInCatalog == "e" || welcomeInputInCatalog == "E") {
+        std::cout << "Saliendo..." << std::endl;
     }
 }
 
-void Curator::showCatalog() {
-
+// Mostrar el catálogo
+void Curator::showCatalog() const {
+    if (catalog.empty()) {
+        std::cout << "El catálogo está vacío." << std::endl;
+        return;
+    }
+    for (const auto& content : catalog) {
+        content->show();
+    }
 }
 
+// Leer el catálogo desde JSON
 void Curator::readCatalog() {
-    
+    std::ifstream file("catalog.json");
+    if (!file) {
+        std::cerr << "No se pudo abrir catalog.json" << std::endl;
+        return;
+    }
+    nlohmann::json j;
+    file >> j;
+    catalog.clear();
+
+    for (const auto& item : j) {
+        std::string type = item.at("type");
+        if (type == "movie") {
+            auto movie = std::make_shared<Movie>(
+                item.at("id"),
+                item.at("name"),
+                item.at("hrDuration"),
+                item.at("minDuration"),
+                item.at("secDuration"),
+                item.at("rating"),
+                item.at("genre")
+            );
+            catalog.push_back(movie);
+        } else if (type == "series") {
+            std::list<Episode> episodes;
+            if (item.contains("episodes")) {
+                for (const auto& ep : item.at("episodes")) {
+                    episodes.emplace_back(ep.at("id"), ep.at("title"), ep.at("duration"));
+                }
+            }
+            auto series = std::make_shared<Series>(
+                item.at("id"),
+                item.at("name"),
+                item.at("hrDuration"),
+                item.at("minDuration"),
+                item.at("secDuration"),
+                item.at("rating"),
+                item.at("genre"),
+                episodes
+            );
+            catalog.push_back(series);
+        }
+    }
 }

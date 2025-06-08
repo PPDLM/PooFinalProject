@@ -3,28 +3,31 @@
 
 #include "AudiovisContent.hpp"
 #include <list>
+#include <memory>
+#include <string>
 
 class Curator {
 private:
-    // Attribute
-    std::list<AudiovisContent> catalog;
+    // Ahora la lista es de punteros inteligentes para polimorfismo real
+    std::list<std::shared_ptr<AudiovisContent>> catalog;
 
 public:
-    // Constructors
+    // Constructores
     Curator();
-    Curator(const std::list<AudiovisContent>& newCatalog);
+    Curator(const std::list<std::shared_ptr<AudiovisContent>>& newCatalog);
 
     // Destructor
     ~Curator();
 
-    // Getter and setter (Catalog)
-    const std::list<AudiovisContent>& getCatalog() const;
-    void setCatalog(const std::list<AudiovisContent>& newCatalog);
+    // Getter y setter para el catálogo
+    const std::list<std::shared_ptr<AudiovisContent>>& getCatalog() const;
+    void setCatalog(const std::list<std::shared_ptr<AudiovisContent>>& newCatalog);
 
-    // Methods
+    // Métodos de interacción
     std::string welcomeMenu();
-    void catalogMenu(Curator theCurator, std::string welcomeInputinCatalog);
-    void showCatalog();
+    void catalogMenu(const std::string& welcomeInputInCatalog);
+    void showCatalog() const;
+    void readCatalog();
 };
 
 #endif // CURATOR_HPP
