@@ -59,7 +59,7 @@ void Curator::showCatalog() const {
 
 // Leer el catálogo desde JSON
 void Curator::readCatalog() {
-    std::ifstream file("catalog.json");
+    std::ifstream file("../data/catalog.json");
     if (!file) {
         std::cerr << "No se pudo abrir catalog.json" << std::endl;
         return;
