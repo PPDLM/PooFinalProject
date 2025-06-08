@@ -1,5 +1,6 @@
 #include "Series.hpp"
 #include <iostream>
+#include <numeric>
 #include "json.hpp"
 
 // Mostrar información en consola
@@ -12,15 +13,32 @@ void Series::show() const {
               << minDuration << "m "
               << secDuration << "s" << std::endl;
     std::cout << "Género: " << genre << std::endl;
-    std::cout << "Calificación: " << rating << std::endl;
+    std::cout << "Calificación promedio: " << getAverageRating() << std::endl;
     std::cout << "Episodios:" << std::endl;
     int epCount = 1;
     for (const auto& ep : episodes) {
         std::cout << "  Episodio " << epCount++ << ": "
                   << ep.getTitle() << " (ID: " << ep.getId()
-                  << ", Duración: " << ep.getDuration() << " min)" << std::endl;
+                  << ", Duración: " << ep.getDuration() << " min, "
+                  << "Calificación promedio: " << ep.getAverageRating() << ")" << std::endl;
     }
     std::cout << "=======================" << std::endl;
+}
+
+// Calcular promedio de ratings de la serie
+float Series::getAverageRating() const {
+    if (ratings.empty()) return 0.0f;
+    float sum = std::accumulate(ratings.begin(), ratings.end(), 0);
+    return sum / ratings.size();
+}
+
+// Agregar calificación con validación
+void Series::addRating(int addedRating) {
+    if (addedRating < 1 || addedRating > 5) {
+        std::cerr << "Advertencia: La calificación debe estar entre 1 y 5." << std::endl;
+        return;
+    }
+    ratings.push_back(addedRating);
 }
 
 // Convertir objeto a JSON
@@ -32,16 +50,11 @@ nlohmann::json Series::toJson() const {
     j["hrDuration"] = hrDuration;
     j["minDuration"] = minDuration;
     j["secDuration"] = secDuration;
-    j["rating"] = rating;
     j["genre"] = genre;
-
+    j["ratings"] = ratings;
     j["episodes"] = nlohmann::json::array();
     for (const auto& ep : episodes) {
-        nlohmann::json epJson;
-        epJson["id"] = ep.getId();
-        epJson["title"] = ep.getTitle();
-        epJson["duration"] = ep.getDuration();
-        j["episodes"].push_back(epJson);
+        j["episodes"].push_back(ep.toJson());
     }
     return j;
 }
@@ -53,4 +66,8 @@ const std::list<Episode>& Series::getEpisodes() const {
 
 void Series::setEpisodes(const std::list<Episode>& newEpisodes) {
     episodes = newEpisodes;
+}
+
+std::list<Episode>& Series::getEpisodesRef() {
+    return episodes;
 }

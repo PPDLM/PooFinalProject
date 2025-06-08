@@ -1,26 +1,36 @@
 [
-    {
-        "type": "movie",
-        "id": 1,
-        "name": "Interstellar",
-        "hrDuration": 2,
-        "minDuration": 49,
-        "secDuration": 0,
-        "rating": 9,
-        "genre": "Sci-Fi"
-    },
-    {
-        "type": "series",
-        "id": 2,
-        "name": "Dark",
-        "hrDuration": 1,
-        "minDuration": 0,
-        "secDuration": 0,
-        "rating": 8,
-        "genre": "Thriller",
-        "episodes": [
-            {"id": 1, "title": "Secrets", "duration": 60},
-            {"id": 2, "title": "Lies", "duration": 58}
-        ]
-    }
+  {
+    "type": "movie",
+    "id": 1,
+    "name": "Interestelar",
+    "hrDuration": 2,
+    "minDuration": 49,
+    "secDuration": 0,
+    "genre": "Ciencia Ficción",
+    "ratings": [4, 5, 5]
+  },
+  {
+    "type": "series",
+    "id": 2,
+    "name": "Stranger Things",
+    "hrDuration": 0,
+    "minDuration": 50,
+    "secDuration": 0,
+    "genre": "Suspenso",
+    "ratings": [5, 4],
+    "episodes": [
+      {
+        "id": 101,
+        "title": "El comienzo",
+        "duration": 50,
+        "ratings": [5, 5]
+      },
+      {
+        "id": 102,
+        "title": "El portal",
+        "duration": 52,
+        "ratings": [4]
+      }
+    ]
+  }
 ]

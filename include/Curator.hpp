@@ -26,8 +26,11 @@ public:
     // Métodos de interacción
     std::string welcomeMenu();
     void catalogMenu(const std::string& welcomeInputInCatalog);
-    void showCatalog() const;
+    void showCatalog();
     void readCatalog();
+    void showEpisodesOfSeries() const;
+    void catalogActionsMenu(const std::vector<std::shared_ptr<AudiovisContent>>& filtered);
+    void saveCatalog() const;
 };
 
 #endif // CURATOR_HPP

@@ -9,6 +9,7 @@ private:
     int id;
     std::string title;
     int duration; // minutos
+    std::vector<int> ratings;
 
 public:
     // Constructor por defecto
@@ -22,6 +23,10 @@ public:
     const std::string& getTitle() const;
     int getDuration() const;
 
+    // Ratings accessors
+    const std::vector<int>& getRatings() const;
+    void setRatings(const std::vector<int>& newRatings);
+
     // Setters
     void setId(int newId);
     void setTitle(const std::string& newTitle);
@@ -30,6 +35,9 @@ public:
     // Serialización JSON (opcional, útil si quieres manipular episodios independientes)
     nlohmann::json toJson() const;
     static Episode fromJson(const nlohmann::json& j);
+    void addRating(int addedRating);
+    float getAverageRating() const;
+
 };
 
 #endif // EPISODE_HPP

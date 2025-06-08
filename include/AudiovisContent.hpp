@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <vector>
 #include "json.hpp"
 
 class AudiovisContent {
@@ -15,13 +16,13 @@ protected:
     int hrDuration;
     int minDuration;
     int secDuration;
-    int rating;
     std::string genre;
+    std::vector<int> ratings;
 
 public:
     // Constructors
     AudiovisContent();
-    AudiovisContent(const std::string& newType,int newId, const std::string& newName, int newHrDuration, int newMinDuration, int newSecDuration, int newRating, const std::string& newGenre);
+    AudiovisContent(const std::string& newType, int newId, const std::string& newName, int newHrDuration, int newMinDuration, int newSecDuration, const std::string& newGenre);
 
     // Destructor
     virtual ~AudiovisContent(); // Polymorphic destructor
@@ -44,11 +45,12 @@ public:
     int getSecDuration() const;
     void setSecDuration(int secDuration);
 
-    int getRating() const;
-    void setRating(int rating);
-
     const std::string& getGenre() const;
     void setGenre(const std::string& genre);
+
+    // Ratings accessors
+    const std::vector<int>& getRatings() const;
+    void setRatings(const std::vector<int>& newRatings);
 
     // Métodos polimórficos puros (obligatorio override en derivadas)
     virtual void show() const = 0; // Para mostrar en consola
@@ -59,7 +61,8 @@ public:
 
     // Métodos opcionales
     virtual void addRating(int addedRating);
-    virtual void showOverallRating();
+    virtual float getAverageRating() const;  // Calcula el promedio de ratings
+    virtual void showOverallRating(); // <-- Aquí
 };
 
 #endif // AUDIOVISCONTENT_HPP
