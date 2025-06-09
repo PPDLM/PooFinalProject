@@ -9,6 +9,8 @@
 #include <memory>
 #include <algorithm>
 #include <limits>
+#include <opencv2/opencv.hpp> // Para imágenes
+#include <cstdlib> // Para abrir videos
 
 // Función auxiliar para validar entrada de enteros
 int inputInt(const std::string& prompt) {
@@ -246,6 +248,20 @@ void Curator::showEpisodesOfSeries() const {
         std::cout << std::endl;
     }
 }
+void showImage(const std::string& imagePath) {
+    cv::Mat img = cv::imread(imagePath);
+    if (img.empty()) {
+        std::cout << "Error al cargar la imagen: " << imagePath << std::endl;
+        return;
+    }
+    cv::imshow("Imagen", img);
+    cv::waitKey(0); // Esperar a que el usuario cierre la imagen
+}
+
+void playVideo(const std::string& videoPath) {
+    std::string command = "ffplay -autoexit -nodisp " + videoPath; // FFmpeg para reproducir video
+    system(command.c_str()); // Ejecutar el comando
+}
 
 // Submenú de acciones sobre el catálogo filtrado
 void Curator::catalogActionsMenu(const std::vector<std::shared_ptr<AudiovisContent>>& filtered) {
@@ -348,8 +364,14 @@ void Curator::catalogActionsMenu(const std::vector<std::shared_ptr<AudiovisConte
             }
         } else if (subOption == 3) {
             std::cout << "Opción nueva! Por lo tanto ten en cuenta que tenemos solamente videos disponibles para: \nPELÍCULAS: Anora y Nosferatu.\nSERIES: Broklyn 99 y Stranger Things\n";
+            int id = inputInt("Ingrese el ID del contenido: ");
+            std::string videoPath = "videos/" + std::to_string(id) + ".mp4"; // Ruta estándar para video
+            playVideo(videoPath);
         } else if (subOption == 4) {
             std::cout << "Opción nueva! Por lo tanto ten en cuenta que tenemos solamente imágenes disponibles para: \nPELÍCULAS: Interestelar y Y tu mamá también.\nSERIES: Friends y Rick y Morty\n";
+            int id = inputInt("Ingrese el ID del contenido: ");
+            std::string imagePath = "images/" + std::to_string(id) + ".jpg"; // Ruta estándar para imagen
+            showImage(imagePath);
         } else if (subOption == 5) {
             break; // Volver al menú anterior
         }
