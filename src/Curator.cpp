@@ -347,9 +347,9 @@ void Curator::catalogActionsMenu(const std::vector<std::shared_ptr<AudiovisConte
                 }
             }
         } else if (subOption == 3) {
-            std::cout << "Funcionalidad de mostrar video real no implementada todavía.\n";
+            std::cout << "Opción nueva! Por lo tanto ten en cuenta que tenemos solamente videos disponibles para: \nPELÍCULAS: Anora y Nosferatu.\nSERIES: Broklyn 99 y Stranger Things\n";
         } else if (subOption == 4) {
-            std::cout << "Funcionalidad de mostrar imagen real no implementada todavía.\n";
+            std::cout << "Opción nueva! Por lo tanto ten en cuenta que tenemos solamente imágenes disponibles para: \nPELÍCULAS: Interestelar y Y tu mamá también.\nSERIES: Friends y Rick y Morty\n";
         } else if (subOption == 5) {
             break; // Volver al menú anterior
         }
