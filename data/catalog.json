@@ -10,6 +10,96 @@
     "ratings": [4, 5, 5]
   },
   {
+    "type": "movie",
+    "id": 3,
+    "name": "Notting Hill",
+    "hrDuration": 2,
+    "minDuration": 4,
+    "secDuration": 0,
+    "genre": "Romance",
+    "ratings": [4, 5, 5]
+  },
+  {
+    "type": "movie",
+    "id": 5,
+    "name": "Duna",
+    "hrDuration": 2,
+    "minDuration": 47,
+    "secDuration": 0,
+    "genre": "Ciencia Ficción",
+    "ratings": [4, 5, 5]
+  },
+  {
+    "type": "movie",
+    "id": 7,
+    "name": "El conjuro",
+    "hrDuration": 1,
+    "minDuration": 52,
+    "secDuration": 0,
+    "genre": "Terror",
+    "ratings": [4, 3, 5]
+  },
+  {
+    "type": "movie",
+    "id": 9,
+    "name": "Anastasia",
+    "hrDuration": 1,
+    "minDuration": 34,
+    "secDuration": 0,
+    "genre": "Animada",
+    "ratings": [4, 5, 5]
+  },
+  {
+    "type": "movie",
+    "id": 11,
+    "name": "Anora",
+    "hrDuration": 2,
+    "minDuration": 19,
+    "secDuration": 0,
+    "genre": "Drama",
+    "ratings": [4, 5, 5]
+  },
+  {
+    "type": "movie",
+    "id": 13,
+    "name": "El diario de Bridget Jones",
+    "hrDuration": 1,
+    "minDuration": 37,
+    "secDuration": 0,
+    "genre": "Romance",
+    "ratings": [4, 4, 3]
+  },
+  {
+    "type": "movie",
+    "id": 15,
+    "name": "Nosferatu",
+    "hrDuration": 2,
+    "minDuration": 13,
+    "secDuration": 0,
+    "genre": "Terror",
+    "ratings": [4, 5, 5]
+  },
+  {
+    "type": "movie",
+    "id": 17,
+    "name": "Troya",
+    "hrDuration": 2,
+    "minDuration": 43,
+    "secDuration": 0,
+    "genre": "Acción",
+    "ratings": [4, 2, 5]
+  },
+  {
+    "type": "movie",
+    "id": 19,
+    "name": "Y tu mamá también",
+    "hrDuration": 1,
+    "minDuration": 46,
+    "secDuration": 0,
+    "genre": "Drama",
+    "ratings": [4, 5, 5]
+  },
+  {
     "type": "series",
     "id": 2,
     "name": "Stranger Things",
@@ -29,6 +119,222 @@
         "id": 102,
         "title": "El portal",
         "duration": 52,
+        "ratings": [4]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 4,
+    "name": "Brooklyn 99",
+    "hrDuration": 0,
+    "minDuration": 25,
+    "secDuration": 0,
+    "genre": "Comedia",
+    "ratings": [4, 4],
+    "episodes": [
+      {
+        "id": 201,
+        "title": "Piloto",
+        "duration": 22,
+        "ratings": [5, 4]
+      },
+      {
+        "id": 202,
+        "title": "El grafitero",
+        "duration": 21,
+        "ratings": [4]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 6,
+    "name": "Las bucaneras",
+    "hrDuration": 0,
+    "minDuration": 50,
+    "secDuration": 0,
+    "genre": "Romance",
+    "ratings": [5, 4],
+    "episodes": [
+      {
+        "id": 601,
+        "title": "Veneno estadounidense",
+        "duration": 49,
+        "ratings": [3, 5]
+      },
+      {
+        "id": 602,
+        "title": "Mujeres o esposas",
+        "duration": 53,
+        "ratings": [4]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 8,
+    "name": "Dexter",
+    "hrDuration": 0,
+    "minDuration": 50,
+    "secDuration": 0,
+    "genre": "Suspenso",
+    "ratings": [3, 4],
+    "episodes": [
+      {
+        "id": 801,
+        "title": "Dexter",
+        "duration": 53,
+        "ratings": [5, 4]
+      },
+      {
+        "id": 802,
+        "title": "El crocodilo",
+        "duration": 54,
+        "ratings": [4,3,2,5]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 10,
+    "name": "1923",
+    "hrDuration": 0,
+    "minDuration": 55,
+    "secDuration": 0,
+    "genre": "Drama histórico",
+    "ratings": [5, 4],
+    "episodes": [
+      {
+        "id": 1001,
+        "title": "1923",
+        "duration": 57,
+        "ratings": [5,3, 5]
+      },
+      {
+        "id": 1002,
+        "title": "El trono vacío de la naturaleza",
+        "duration": 49,
+        "ratings": [4,4,5]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 12,
+    "name": "Mentes criminales",
+    "hrDuration": 0,
+    "minDuration": 45,
+    "secDuration": 0,
+    "genre": "Suspenso",
+    "ratings": [5, 4],
+    "episodes": [
+      {
+        "id": 1201,
+        "title": "Agresor extremo",
+        "duration": 42,
+        "ratings": [5, 5,1]
+      },
+      {
+        "id": 1202,
+        "title": "Obligación",
+        "duration": 45,
+        "ratings": [4,3,4]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 14,
+    "name": "Friends",
+    "hrDuration": 0,
+    "minDuration": 30,
+    "secDuration": 0,
+    "genre": "Comedia",
+    "ratings": [5, 4],
+    "episodes": [
+      {
+        "id": 1401,
+        "title": "Piloto",
+        "duration": 25,
+        "ratings": [5, 5]
+      },
+      {
+        "id": 1402,
+        "title": "Ultrasonido",
+        "duration": 32,
+        "ratings": [4,5,5,5]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 16,
+    "name": "La casa del dragón",
+    "hrDuration": 0,
+    "minDuration": 50,
+    "secDuration": 0,
+    "genre": "Drama",
+    "ratings": [5, 4],
+    "episodes": [
+      {
+        "id": 1601,
+        "title": "Los herederos del dragón",
+        "duration": 50,
+        "ratings": [5, 5]
+      },
+      {
+        "id": 1602,
+        "title": "El principe canalla",
+        "duration": 52,
+        "ratings": [4]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 18,
+    "name": "Rick y Morty",
+    "hrDuration": 0,
+    "minDuration": 25,
+    "secDuration": 0,
+    "genre": "Animada",
+    "ratings": [5, 4],
+    "episodes": [
+      {
+        "id": 1801,
+        "title": "Piloto",
+        "duration": 25,
+        "ratings": [5, 5]
+      },
+      {
+        "id": 1802,
+        "title": "El perro",
+        "duration": 22,
+        "ratings": [4]
+      }
+    ]
+  },
+  {
+    "type": "series",
+    "id": 20,
+    "name": "Peppa Pig",
+    "hrDuration": 0,
+    "minDuration": 27,
+    "secDuration": 0,
+    "genre": "Animada",
+    "ratings": [5, 4],
+    "episodes": [
+      {
+        "id": 2001,
+        "title": "Piloto",
+        "duration": 30,
+        "ratings": [2, 5]
+      },
+      {
+        "id": 2002,
+        "title": "Ep 2",
+        "duration": 22,
         "ratings": [4]
       }
     ]
