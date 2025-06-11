@@ -368,7 +368,7 @@ void Curator::catalogActionsMenu(const std::vector<std::shared_ptr<AudiovisConte
             std::string videoPath = "videos/" + std::to_string(id) + ".mp4"; // Ruta estándar para video
             playVideo(videoPath);
         } else if (subOption == 4) {
-            std::cout << "Opción nueva! Por lo tanto ten en cuenta que tenemos solamente imágenes disponibles para: \nPELÍCULAS: Interestelar y Y tu mamá también.\nSERIES: Friends y Rick y Morty\n";
+            std::cout << "Opción nueva! Por lo tanto ten en cuenta que tenemos solamente imágenes disponibles para: \nPELÍCULAS: Interestelar, El conjuro, Anastasia, Y tu mamá también y Dune.\nSERIES: Friends, La Casa del Dragón, Mentes Criminales, Peppa Pig y Rick y Morty\n";
             int id = inputInt("Ingrese el ID del contenido: ");
             std::string imagePath = "images/" + std::to_string(id) + ".jpg"; // Ruta estándar para imagen
             showImage(imagePath);
